@@ -89,9 +89,9 @@
 	
 	// Create appropriately modified image.
 	UIImage *image = nil;
+	CGImageRef sourceImg = nil;
 	
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_4_0
-	CGImageRef sourceImg = nil;
 	if ([UIScreen instancesRespondToSelector:@selector(scale)]) {
 		UIGraphicsBeginImageContextWithOptions(destRect.size, NO, 0.f); // 0.f for scale means "scale for device's main screen".
 		sourceImg = CGImageCreateWithImageInRect([self CGImage], sourceRect); // cropping happens here.
@@ -114,7 +114,7 @@
 		CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 		CGContextRef context = CGBitmapContextCreate(NULL, scaledWidth, scaledHeight, 8, (scaledWidth * 4), 
 													 colorSpace, kCGImageAlphaPremultipliedLast);
-		CGImageRef sourceImg = CGImageCreateWithImageInRect([self CGImage], sourceRect);
+		sourceImg = CGImageCreateWithImageInRect([self CGImage], sourceRect);
 		CGContextDrawImage(context, destRect, sourceImg);
 		CGImageRelease(sourceImg);
 		CGImageRef finalImage = CGBitmapContextCreateImage(context);	
