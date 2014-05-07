@@ -20,4 +20,8 @@ typedef enum {
 - (UIImage *)imageCroppedToFitSize:(CGSize)size; // uses MGImageResizeCrop
 - (UIImage *)imageScaledToFitSize:(CGSize)size; // uses MGImageResizeScale
 
+- (UIImage *)imageToFitSize:(CGSize)size method:(MGImageResizingMethod)resizeMethod scale:(CGFloat)scale;
+- (UIImage *)imageCroppedToFitSize:(CGSize)size scale:(CGFloat)scale; // uses MGImageResizeCrop
+- (UIImage *)imageScaledToFitSize:(CGSize)size scale:(CGFloat)scale; // uses MGImageResizeScale
+
 @end
