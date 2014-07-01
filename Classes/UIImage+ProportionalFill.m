@@ -88,6 +88,8 @@
 	}
 	
 	
+	//If image is rotated we have to rotate the CGImage
+	//Otherwise the crop is wrong
 	if (self.imageOrientation == UIImageOrientationRight || self.imageOrientation == UIImageOrientationLeft)
 	{
 		sourceRect = CGRectMake(sourceRect.origin.y, sourceRect.origin.x, sourceRect.size.height, sourceRect.size.width);
