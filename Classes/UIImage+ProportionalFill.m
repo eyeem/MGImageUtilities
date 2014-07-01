@@ -87,6 +87,12 @@
 		destRect = CGRectMake(0, 0, scaledWidth, scaledHeight);
 	}
 	
+	
+	if (self.imageOrientation == UIImageOrientationRight || self.imageOrientation == UIImageOrientationLeft)
+	{
+		sourceRect = CGRectMake(sourceRect.origin.y, sourceRect.origin.x, sourceRect.size.height, sourceRect.size.width);
+	}
+	
 	// Create appropriately modified image.
 	UIImage *image = nil;
 	CGImageRef sourceImg = nil;
